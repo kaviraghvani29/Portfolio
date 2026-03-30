@@ -7,22 +7,18 @@ const Contact = () => {
     message: ""
   });
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
+      ...formData, [e.target.name]: e.target.value
     });
   };
 
-  // Handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const existingData = JSON.parse(localStorage.getItem("contacts")) || [];
     const updatedData = [...existingData, formData];
     localStorage.setItem("contacts", JSON.stringify(updatedData));
-
 
     setFormData({
       name: "",
